@@ -1,0 +1,47 @@
+openapi: 3.0.0
+
+info:
+  version: 0.0.1
+  title: Movie Service
+  description: The movie service
+
+tags:
+  - name: "Movie"
+
+
+paths:
+  /movies:
+    get:
+      summary: This is summary
+      tags:
+        - "Movie"
+      description: This is the desription
+      operationId: getAllMovies
+      responses:
+        "200":
+          description: This means its oke
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Movie'
+
+components:
+  schemas:
+    Movie:
+      description: This os the movie model
+      type: object
+      properties:
+        id:
+          description: The id of the movie
+          type: integer
+        name:
+          description: The name of the movie
+          type: string
+        director:
+          description: The director of the movie
+          type: string
+        yearOfProduction:
+          description: The year in which the movie is produced
+          type: integer

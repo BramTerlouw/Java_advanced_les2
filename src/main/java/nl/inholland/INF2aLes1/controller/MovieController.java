@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/movies")
+@RequestMapping(value="/movies")
 public class MovieController {
 
     MovieService movieService;

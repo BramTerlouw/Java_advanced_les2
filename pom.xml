@@ -22,6 +22,19 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+
+<!--		<dependency>-->
+<!--			<groupId>io.swagger</groupId>-->
+<!--			<artifactId>swagger-annotations</artifactId>-->
+<!--			<version>1.6.6</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>io.swagger</groupId>-->
+<!--			<artifactId>swagger-models</artifactId>-->
+<!--			<version>1.6.6</version>-->
+<!--		</dependency>-->
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -35,6 +48,30 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+<!--			<plugin>-->
+<!--				<groupId>io.swagger.codegen.v3</groupId>-->
+<!--				<artifactId>swagger-codegen-maven-plugin</artifactId>-->
+<!--				<version>3.0.18</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<goals>-->
+<!--							<goal>generate</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<inputSpec>${project.basedir}/src/main/resources/movie-api.yaml</inputSpec>-->
+<!--							<language>spring</language>-->
+<!--							<output>${project.build.directory}/generated-sources/</output>-->
+<!--							<generateSupportingFiles>false</generateSupportingFiles>-->
+<!--							<apiPackage>nl.inholland.INF2aLes1.api</apiPackage>-->
+<!--							<modelPackage>nl.inholland.INF2aLes1.models</modelPackage>-->
+<!--							<configOptions>-->
+<!--								<interfaceOnly>true</interfaceOnly>-->
+<!--							</configOptions>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
 
