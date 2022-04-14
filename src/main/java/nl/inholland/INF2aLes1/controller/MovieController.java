@@ -24,22 +24,25 @@ public class MovieController {
     }
 
     @GetMapping("/{movieId}")
-    public Movie getOne(@PathVariable String movieId) {
-        return movieService.getOne(Integer.parseInt(movieId));
+    public ResponseEntity getOne(@PathVariable String movieId) {
+        return ResponseEntity.status(200).body(movieService.getOne(Integer.parseInt(movieId)));
     }
 
     @PostMapping
-    public Movie insertOne(@RequestBody Movie movie) {
-        return movieService.insertOne(movie);
+    public ResponseEntity insertOne(@RequestBody Movie movie) {
+        movieService.insertOne(movie);
+        return ResponseEntity.status(201).body(movie);
     }
 
     @PutMapping("/{movieId}")
-    public Movie updateOne(@PathVariable String movieId, @RequestBody Movie movie) {
-        return movieService.updateOne(Integer.parseInt(movieId), movie);
+    public ResponseEntity updateOne(@PathVariable String movieId, @RequestBody Movie movie) {
+        movieService.updateOne(Integer.parseInt(movieId), movie);
+        return ResponseEntity.status(204).body(movie);
     }
 
     @DeleteMapping("/{movieId}")
-    public int deleteOne(@PathVariable String movieId) {
-        return movieService.deleteOne(Integer.parseInt(movieId));
+    public ResponseEntity deleteOne(@PathVariable String movieId) {
+        movieService.deleteOne(Integer.parseInt(movieId));
+        return ResponseEntity.status(200).body(movieId);
     }
 }
