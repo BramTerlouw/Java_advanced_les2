@@ -26,16 +26,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Movie'
+        "404":
+          description: Movies could not be found
+          content:
+            {}
 
 components:
   schemas:
     Movie:
-      description: This os the movie model
+      description: This is the movie model
       type: object
       properties:
         id:
           description: The id of the movie
           type: integer
+          format: int64
         name:
           description: The name of the movie
           type: string
@@ -45,3 +50,4 @@ components:
         yearOfProduction:
           description: The year in which the movie is produced
           type: integer
+          format: int32
