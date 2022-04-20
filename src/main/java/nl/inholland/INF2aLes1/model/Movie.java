@@ -1,17 +1,29 @@
 package nl.inholland.INF2aLes1.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Movie {
 
+    @Id
+    @GeneratedValue
     private long id;
+
     private String name;
     private String director;
     private int yearOfProduction;
 
-    public Movie(long id, String name, String director, int yearOfProduction) {
+    public Movie(String name, String director, int yearOfProduction) {
         this.id = id;
         this.name = name;
         this.director = director;
         this.yearOfProduction = yearOfProduction;
+    }
+
+    public Movie() {
+
     }
 
     public long getId() {

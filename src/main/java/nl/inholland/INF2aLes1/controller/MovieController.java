@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value="/movies")
@@ -35,14 +36,21 @@ public class MovieController {
     }
 
     @PutMapping("/{movieId}")
-    public ResponseEntity updateOne(@PathVariable String movieId, @RequestBody Movie movie) {
-        movieService.updateOne(Integer.parseInt(movieId), movie);
-        return ResponseEntity.status(204).body(movie);
+    public ResponseEntity updateOne(@PathVariable long movieId, @RequestBody Movie movie) {
+
+        Movie exist_Movie = movieService.getOne(movieId);
+
+        exist_Movie.setName(movie.getName());
+        exist_Movie.setDirector(movie.getDirector());
+        exist_Movie.setYearOfProduction(movie.getYearOfProduction());
+
+        Movie result = movieService.updateOne(exist_Movie);
+        return ResponseEntity.status(204).body(result);
     }
 
     @DeleteMapping("/{movieId}")
     public ResponseEntity deleteOne(@PathVariable String movieId) {
-        movieService.deleteOne(Integer.parseInt(movieId));
+        movieService.deleteOne(Long.parseLong((movieId)));
         return ResponseEntity.status(200).body(movieId);
     }
 }
