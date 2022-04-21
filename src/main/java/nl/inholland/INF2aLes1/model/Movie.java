@@ -1,8 +1,8 @@
 package nl.inholland.INF2aLes1.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Movie {
@@ -10,10 +10,19 @@ public class Movie {
     @Id
     @GeneratedValue
     private long id;
-
     private String name;
     private String director;
     private int yearOfProduction;
+
+    // In this case, multiple users can have this movie in their collection
+    @ManyToMany
+    private Set<User> users = new HashSet<>();
+
+
+    // Constructors
+    public Movie() {
+
+    }
 
     public Movie(String name, String director, int yearOfProduction) {
         this.id = id;
@@ -22,10 +31,8 @@ public class Movie {
         this.yearOfProduction = yearOfProduction;
     }
 
-    public Movie() {
 
-    }
-
+    // Getters and setters
     public long getId() {
         return id;
     }
@@ -58,6 +65,8 @@ public class Movie {
         this.yearOfProduction = yearOfProduction;
     }
 
+
+    // To string implementation
     @Override
     public String toString() {
         return "Movie{" +
